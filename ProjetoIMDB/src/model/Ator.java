@@ -1,4 +1,4 @@
 package model;
 
-public class Ator {
+public class Ator extends Cineasta {
 }

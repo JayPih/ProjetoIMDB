@@ -1,5 +1,4 @@
 package model;
-import java.util.List;
 public class Ator {
 
     private String papel;

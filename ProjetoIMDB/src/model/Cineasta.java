@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public abstract class Cineasta {
     private String nome;
     private String sobrenome;

@@ -11,13 +11,14 @@ public class Filmes {
     private String dataLancamento;
     private BigDecimal orcamento;
     private String descricao;
-
+    private boolean isOscar;
 
     private List<Ator> ator;
     private List<Diretor> diretor;
 
     private CategoriaFilmes categoriaFilme;
     private ClassificacaoIndicativa classificacaoIndicativa;
+
 
     public String getNome() {
         return nome;
@@ -65,5 +66,12 @@ public class Filmes {
 
     public void setClassificacaoIndicativa(ClassificacaoIndicativa classificacaoIndicativa) {
         this.classificacaoIndicativa = classificacaoIndicativa;
+    }
+    public boolean isOscar() {
+        return isOscar;
+    }
+
+    public void setOscar(boolean oscar) {
+        isOscar = oscar;
     }
 }

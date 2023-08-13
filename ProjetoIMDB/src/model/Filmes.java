@@ -74,4 +74,9 @@ public class Filmes {
     public void setOscar(boolean oscar) {
         isOscar = oscar;
     }
+
+    public String infoFilme(){
+        return this.nome +"("+ this.dataLancamento +")"+"["+ this.classificacaoIndicativa +"]";
+    }
+
 }

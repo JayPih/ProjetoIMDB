@@ -1,4 +1,6 @@
 package model;
 
-public class Diretor {
+public class Diretor extends Cineasta{
+
+
 }

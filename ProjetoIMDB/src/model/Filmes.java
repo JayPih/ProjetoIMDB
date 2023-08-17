@@ -4,6 +4,7 @@ import enums.CategoriaFilmes;
 import enums.ClassificacaoIndicativa;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.List;
 
 public class Filmes {
@@ -13,8 +14,8 @@ public class Filmes {
     private String descricao;
     private boolean isOscar;
 
-    private List<Ator> ator;
-    private List<Diretor> diretor;
+    private List<Ator> atores;
+    private List<Diretor> diretores;
 
     private CategoriaFilmes categoriaFilmes;
     private ClassificacaoIndicativa classificacaoIndicativa;
@@ -67,12 +68,12 @@ public class Filmes {
     public void setClassificacaoIndicativa(ClassificacaoIndicativa classificacaoIndicativa) {
         this.classificacaoIndicativa = classificacaoIndicativa;
     }
-    public boolean isOscar() {
+    public boolean getIsOscar() {
         return isOscar;
     }
 
-    public void setOscar(boolean oscar) {
-        isOscar = oscar;
+    public void setIsOscar(boolean isOscar) {
+        this.isOscar = isOscar;
     }
 
     @Override
@@ -80,4 +81,9 @@ public class Filmes {
         return getNome();
     }
 
+    public boolean add(Ator ator){return atores.add(ator);}
+    public boolean add(Diretor diretor){return diretores.add(diretor);}
+
+    public List<Ator> getAtores() {return Collections.unmodifiableList(atores);}
+    public List<Diretor> getDiretores() {return Collections.unmodifiableList(diretores);}
 }

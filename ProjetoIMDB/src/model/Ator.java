@@ -1,5 +1,5 @@
 package model;
-public class Ator {
+public class Ator extends Cineasta{
 
     private String papel;
     private double tempoDeTela;

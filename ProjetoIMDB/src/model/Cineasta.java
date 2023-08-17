@@ -7,6 +7,7 @@ public abstract class Cineasta {
     private String sobrenome;
     private Date dataNascimento;
     private double altura;
+    private boolean isOscar;
 
     public String getNome() {
         return nome;
@@ -39,4 +40,14 @@ public abstract class Cineasta {
     public void setAltura(double altura) {
         this.altura = altura;
     }
+
+    public boolean isOscar() {
+        return isOscar;
+    }
+
+    public void setOscar(boolean oscar) {
+        isOscar = oscar;
+    }
+
+
 }

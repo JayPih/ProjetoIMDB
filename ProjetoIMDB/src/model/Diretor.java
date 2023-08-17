@@ -1,6 +1,6 @@
 package model;
 
-public class Diretor extends Cineasta{
+public class Diretor extends Cineasta {
 
     private int numFilmesDirigidos;
 

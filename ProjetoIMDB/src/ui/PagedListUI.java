@@ -1,48 +1,56 @@
 package ui;
 
-import model.Filmes;
 import util.ConsoleUIHelper;
 
 import java.util.List;
 
-public class PagedListUI extends  BasicUI {
-    protected final int PAGE_SIZE;
-    protected int currentPage;
+public abstract class PagedListUI<T> extends BasicUI {
 
-    protected PagedList pageSource;
-    private List<Filmes> dataList;
-    public PagedListUI(String pageTitle, PagedList pageSource) {
-        this(DEFAULT_COLUMNS, DEFAULT_ROWS, pageTitle, pageSource);
+    protected final int PAGE_SIZE;
+    protected final PagedList<T> pageSource;
+    protected int curPage;
+    private List<T> dataList;
+
+    public PagedListUI(String titulo, PagedList<T> pageSource) {
+        this(DEFAULT_COLUMNS, DEFAULT_ROWS, titulo, pageSource);
     }
 
-    public PagedListUI(int columns, int rows, String pageTitle, PagedList pageSource) {
-        super(columns, rows, pageTitle);
-        PAGE_SIZE = rows - 4;
-        currentPage = 1;
+    public PagedListUI(int colunas, int linhas, String titulo, PagedList<T> pageSource) {
+        super(colunas, linhas, titulo);
+        PAGE_SIZE = linhas - 4;
+        curPage = 1;
         this.pageSource = pageSource;
     }
 
     @Override
     public int drawContent() {
-        dataList = pageSource.listarFilmes(currentPage,PAGE_SIZE);
+        dataList = pageSource.listar(curPage, PAGE_SIZE);
+        if (dataList.isEmpty() && curPage > 1) {
+            previousPage();
+            dataList = pageSource.listar(curPage, PAGE_SIZE);
+        }
         for (int i = 0; i < dataList.size(); i++) {
-            Filmes filme = dataList.get(i);
-            ConsoleUIHelper.drawWithRightPadding(i + " : " + filme.toString(), columns, ' ');
+            String text = dataList.get(i).toString();
+            ConsoleUIHelper.drawWithRightPadding(i + " -> " + text, colunas, ' ');
         }
         return dataList.size();
     }
 
     @Override
     public int menuLines() {
-        return 0;
+        return 6;
     }
 
     @Override
     public boolean drawMenu() {
-        String[] options = {"Página Anterior", "Página Seguinte", "Novo item", "Ver detalhes", "Sair"};
-        int selectedOption = ConsoleUIHelper.askChooseOption("Escolha uma opção", options);
-
-        switch (selectedOption) {
+        int option = ConsoleUIHelper.askChooseOption(
+                "Escolhar uma opção",
+                "Página Anterior",
+                "Página Seguinte",
+                "Novo item",
+                "Ver detalhes",
+                "Sair");
+        switch (option) {
             case 0: {
                 previousPage();
                 break;
@@ -65,24 +73,28 @@ public class PagedListUI extends  BasicUI {
         }
         return true;
     }
-    private void previousPage(){
 
-    }
-
-    private void nextPage(){
-
-    }
-
-    private void addItem(){
-
-    }
-
-    private void seeItem(){
-        int itemId = ConsoleUIHelper.askNumber("Informe o número do item a exibir").intValue();
-        if (itemId >= 0 && itemId < dataList.size()){
-            System.out.println("Você escolheu o item " + dataList.get(itemId).toString());
+    protected void seeItem() {
+        int op = ConsoleUIHelper.askNumber("Informe o item a exibir").intValue();
+        if (op >= 0 && op < dataList.size()) {
+            showItem(dataList.get(op));
         } else {
-            ConsoleUIHelper.showMessageAndWait("Número inválido! Favor inserir um número válido", 7);
+            ConsoleUIHelper.showMessageAndWait("Item inválido, por favor informe um item válido!", 10);
+            ConsoleUIHelper.clearScreen();
+        }
+    }
+
+    protected abstract void showItem(T item);
+
+    protected abstract void addItem();
+
+    private void nextPage() {
+        curPage++;
+    }
+
+    private void previousPage() {
+        if (curPage > 1) {
+            curPage--;
         }
     }
 }

@@ -16,7 +16,7 @@ public class Filmes {
     private List<Ator> ator;
     private List<Diretor> diretor;
 
-    private CategoriaFilmes categoriaFilme;
+    private CategoriaFilmes categoriaFilmes;
     private ClassificacaoIndicativa classificacaoIndicativa;
 
 
@@ -52,12 +52,12 @@ public class Filmes {
         this.descricao = descricao;
     }
 
-    public CategoriaFilmes getCategoriaFilme() {
-        return categoriaFilme;
+    public CategoriaFilmes getCategoriaFilmes() {
+        return categoriaFilmes;
     }
 
-    public void setCategoriaFilme(CategoriaFilmes categoriaFilme) {
-        this.categoriaFilme = categoriaFilme;
+    public void setCategoriaFilmes(CategoriaFilmes categoriaFilme) {
+        this.categoriaFilmes = categoriaFilme;
     }
 
     public ClassificacaoIndicativa getClassificacaoIndicativa() {
@@ -75,8 +75,9 @@ public class Filmes {
         isOscar = oscar;
     }
 
-    public String infoFilme(){
-        return this.nome +"("+ this.dataLancamento +")"+"["+ this.classificacaoIndicativa +"]";
+    @Override
+    public String toString() {
+        return getNome();
     }
 
 }

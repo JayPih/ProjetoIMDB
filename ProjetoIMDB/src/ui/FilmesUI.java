@@ -13,13 +13,16 @@ public class FilmesUI extends EditItemUI<Filmes> {
     public int drawItemDetails() {
         ConsoleUIHelper.drawWithRightPadding("Categoria: " + item.getCategoriaFilmes().name(), colunas, ' ');
         ConsoleUIHelper.drawWithRightPadding("Nome: " + item.getNome(), colunas, ' ');
-        ConsoleUIHelper.drawWithRightPadding("Sobrenome: " + item.getDescricao(), colunas, ' ');
-        return 3;
+        ConsoleUIHelper.drawWithRightPadding("Descrição: " + item.getDescricao(), colunas, ' ');
+        ConsoleUIHelper.drawWithRightPadding("Data de Lançamento: " + item.getDataLancamento(), colunas, ' ');
+        ConsoleUIHelper.drawWithRightPadding("Orçamento: " + item.getOrcamento(), colunas, ' ');
+        ConsoleUIHelper.drawWithRightPadding("Filme com oscar: " + item.getIsOscar(), colunas, ' ');
+        return 6;
     }
 
     @Override
     public String[] fillFieldsNames() {
-        return new String[]{"Tipo","Nome","Sobrenome"};
+        return new String[]{"Tipo","Nome","Descrição", "Data de Lançamento", "Orçamento", "Filme com oscar"};
     }
 
     @Override
@@ -35,6 +38,9 @@ public class FilmesUI extends EditItemUI<Filmes> {
                 String lancamento = ConsoleUIHelper.askSimpleInput("Informe a data de lançamento");
                 item.setDataLancamento(lancamento);
                 break;
+            case 3:
+                String descricao = ConsoleUIHelper.askSimpleInput("Informe a descrição");
+                item.setDescricao(descricao);
         }
     }
 

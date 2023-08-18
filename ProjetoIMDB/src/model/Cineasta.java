@@ -39,12 +39,12 @@ public abstract class Cineasta {
         this.altura = altura;
     }
 
-    public boolean getIsOscar() {
+    public boolean isOscar() {
         return isOscar;
     }
 
-    public void setIsOscar(boolean isOscar) {
-        this.isOscar = isOscar;
+    public void setOscar(boolean oscar) {
+        isOscar = oscar;
     }
 
 

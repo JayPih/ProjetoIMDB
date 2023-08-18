@@ -54,11 +54,11 @@ public class AtorUI extends EditItemUI<Ator> {
                 item.setPapel(papel);
                 break;
             case 6:
-                boolean oscar = Boolean.parseBoolean(ConsoleUIHelper.askSimpleInput("Informe a altura: "));
+                boolean oscar = Boolean.parseBoolean(ConsoleUIHelper.askSimpleInput("Recebeu oscar: "));
                 item.setOscar(oscar);
                 break;
             case 7:
-                double tempoTela = Double.parseDouble(ConsoleUIHelper.askSimpleInput("Informe a altura: "));
+                double tempoTela = Double.parseDouble(ConsoleUIHelper.askSimpleInput("Informe o tempo de tela "));
                 item.setTempoDeTela(tempoTela);
                 break;
         }

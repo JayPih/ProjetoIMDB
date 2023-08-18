@@ -49,7 +49,7 @@ public class DiretorUI extends EditItemUI<Diretor> {
                 item.setAltura(altura);
                 break;
             case 5:
-                boolean oscar = Boolean.parseBoolean(ConsoleUIHelper.askSimpleInput("Informe a altura: "));
+                boolean oscar = Boolean.parseBoolean(ConsoleUIHelper.askSimpleInput("Recebeu oscar: "));
                 item.setOscar(oscar);
                 break;
             case 6:

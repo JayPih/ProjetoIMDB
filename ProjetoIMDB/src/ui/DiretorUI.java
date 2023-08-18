@@ -41,7 +41,7 @@ public class DiretorUI extends EditItemUI<Diretor> {
                 item.setSobrenome(sobrenome);
                 break;
             case 3:
-                LocalDate dataNascimento = LocalDate.parse(ConsoleUIHelper.askSimpleInput("Informe a data de nascimento: "));
+                String dataNascimento = ConsoleUIHelper.askSimpleInput("Informe a data de nascimento: ");
                 item.setDataNascimento(dataNascimento);
                 break;
             case 4:

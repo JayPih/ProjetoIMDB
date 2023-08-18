@@ -42,7 +42,7 @@ public class AtorUI extends EditItemUI<Ator> {
                 item.setSobrenome(sobrenome);
                 break;
             case 3:
-                LocalDate dataNascimento = LocalDate.parse(ConsoleUIHelper.askSimpleInput("Informe a data de nascimento: "));
+                String dataNascimento = ConsoleUIHelper.askSimpleInput("Informe a data de nascimento: ");
                 item.setDataNascimento(dataNascimento);
                 break;
             case 4:

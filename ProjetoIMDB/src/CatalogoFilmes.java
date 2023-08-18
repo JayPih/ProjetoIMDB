@@ -9,7 +9,6 @@ public class CatalogoFilmes implements ui.PagedList<Filmes> {
 
     public CatalogoFilmes(){catalogoService = CatalogoService.getInstance();}
 
-
     @Override
     public List<Filmes> listar(int pagina, int tamanhoPagina) {
         List<Filmes> filmes = catalogoService.getFilmesList();

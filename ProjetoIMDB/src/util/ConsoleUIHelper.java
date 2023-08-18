@@ -9,7 +9,6 @@ public class ConsoleUIHelper {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-
     public static String askSimpleInput(String message) {
         System.out.printf("%s%n# : ", message);
         return new Scanner(System.in).nextLine().trim();

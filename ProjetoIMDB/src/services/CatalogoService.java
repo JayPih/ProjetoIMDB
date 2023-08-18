@@ -145,10 +145,10 @@ public class CatalogoService {
                 ator.getNome(),
                 ator.getSobrenome(),
                 ator.getDataNascimento(),
-                ator.getAltura(),
-                ator.getIsOscar(),
+                String.valueOf(ator.getAltura()),
+                String.valueOf(ator.getIsOscar()),
                 ator.getPapel(),
-                ator.getTempoDeTela(),
+                String.valueOf(ator.getTempoDeTela()),
                 "\n"
         );
     }
@@ -161,8 +161,8 @@ public class CatalogoService {
         ator.setNome(tokens[1]);
         ator.setSobrenome(tokens[2]);
         ator.setDataNascimento(tokens[3]);
-        ator.setAltura(tokens[4]);
-        ator.setIsOscar(tokens[5]);
+        ator.setAltura(Double.parseDouble(tokens[4]));
+        ator.setIsOscar(Boolean.parseBoolean(tokens[5]));
         ator.setPapel(tokens[6]);
         ator.setTempoDeTela(Double.parseDouble(tokens[6]));
         return ator;
@@ -174,9 +174,9 @@ public class CatalogoService {
                 diretor.getNome(),
                 diretor.getSobrenome(),
                 diretor.getDataNascimento(),
-                diretor.getAltura(),
-                diretor.getIsOscar(),
-                diretor.getNumFilmesDirigidos(),
+                String.valueOf(diretor.getAltura()),
+                String.valueOf(diretor.getIsOscar()),
+                String.valueOf(diretor.getNumFilmesDirigidos()),
                 "\n"
         );
     }
@@ -190,7 +190,7 @@ public class CatalogoService {
         diretor.setSobrenome(tokens[2]);
         diretor.setDataNascimento(tokens[3]);
         diretor.setAltura(Double.parseDouble(tokens[4]));
-        diretor.setIsOscar(tokens[5]);
+        diretor.setIsOscar(Boolean.parseBoolean(tokens[5]));
         diretor.setNumFilmesDirigidos(Integer.parseInt(tokens[6]));
         return diretor;
     }

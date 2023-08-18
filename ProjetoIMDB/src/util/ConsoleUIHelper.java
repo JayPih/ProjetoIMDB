@@ -106,4 +106,13 @@ public class ConsoleUIHelper {
     public static void fillVSpace(int lines, int width) {
         drawWithPadding(" ".repeat(lines * width), width);
     }
+
+
+    public static void showMessageAndWait(String message, int seconds) {
+        try {
+            System.out.println(message);
+            Thread.sleep(seconds * 1000L);
+        } catch (InterruptedException ignored) {
+        }
+    }
 }

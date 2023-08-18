@@ -102,7 +102,7 @@ public class CatalogoService {
                 "F",
                 filmes.getNome(),
                 filmes.getDataLancamento(),
-                filmes.getOrcamento().toString(),
+                String.valueOf(filmes.getOrcamento()),
                 filmes.getDescricao(),
                 String.valueOf(filmes.getIsOscar()),
                 filmes.getCategoriaFilmes().name(),
@@ -118,10 +118,10 @@ public class CatalogoService {
         Filmes filmes = new Filmes();
         filmes.setNome(tokens[1]);
         filmes.setDataLancamento(tokens[2]);
-        double orcamento = Double.parseDouble(tokens[3]);
+        double orcamento = tokens[3].equals("null") ?  0.0d : Double.parseDouble(tokens[3]);
         filmes.setOrcamento(BigDecimal.valueOf(orcamento));
         filmes.setDescricao(tokens[4]);
-        filmes.setIsOscar(Boolean.parseBoolean(tokens[5]));
+        filmes.setIsOscar(tokens[5].equals("true"));
         CategoriaFilmes categoria;
         try {
             categoria = CategoriaFilmes.valueOf(tokens[6]);
@@ -161,10 +161,10 @@ public class CatalogoService {
         ator.setNome(tokens[1]);
         ator.setSobrenome(tokens[2]);
         ator.setDataNascimento(tokens[3]);
-        ator.setAltura(Double.parseDouble(tokens[4]));
-        ator.setIsOscar(Boolean.parseBoolean(tokens[5]));
+        ator.setAltura(tokens[4].equals("null") ? 0.0d : Double.parseDouble(tokens[4]));
+        ator.setIsOscar(tokens[5].equals("true"));
         ator.setPapel(tokens[6]);
-        ator.setTempoDeTela(Double.parseDouble(tokens[6]));
+        ator.setTempoDeTela(tokens[6].equals("null") ? 0.0d : Double.parseDouble(tokens[6]));
         return ator;
     }
 
@@ -189,9 +189,9 @@ public class CatalogoService {
         diretor.setNome(tokens[1]);
         diretor.setSobrenome(tokens[2]);
         diretor.setDataNascimento(tokens[3]);
-        diretor.setAltura(Double.parseDouble(tokens[4]));
-        diretor.setIsOscar(Boolean.parseBoolean(tokens[5]));
-        diretor.setNumFilmesDirigidos(Integer.parseInt(tokens[6]));
+        diretor.setAltura(tokens[4].equals("null") ? 0.0d : Double.parseDouble(tokens[4]));
+        diretor.setIsOscar(tokens[5].equals("true"));
+        diretor.setNumFilmesDirigidos(tokens[6].equals("null") ? 0 : Integer.parseInt(tokens[6]));
         return diretor;
     }
 }

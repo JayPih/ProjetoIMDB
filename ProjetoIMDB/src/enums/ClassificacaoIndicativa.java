@@ -7,7 +7,6 @@ public enum ClassificacaoIndicativa {
     _14("Não recomendado para menores de 14 anos"),
     _16("Não recomendado para menores de 16 anos"),
     _18("Não recomendado para menores de 18 anos");
-
     private final String descricao;
 
     private ClassificacaoIndicativa(String descricao) {

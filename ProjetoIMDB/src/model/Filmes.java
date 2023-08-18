@@ -4,6 +4,7 @@ import enums.CategoriaFilmes;
 import enums.ClassificacaoIndicativa;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,6 +21,12 @@ public class Filmes {
     private CategoriaFilmes categoriaFilmes;
     private ClassificacaoIndicativa classificacaoIndicativa;
 
+    public Filmes(){
+        this.categoriaFilmes = CategoriaFilmes.ACAO;
+        this.classificacaoIndicativa = ClassificacaoIndicativa.L;
+        this.atores = new ArrayList<>();
+        this.diretores = new ArrayList<>();
+    }
 
     public String getNome() {
         return nome;

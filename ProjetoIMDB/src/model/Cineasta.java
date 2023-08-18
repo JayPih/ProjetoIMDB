@@ -1,11 +1,12 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public abstract class Cineasta {
     private String nome;
     private String sobrenome;
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     private double altura;
     private boolean isOscar;
 
@@ -25,11 +26,11 @@ public abstract class Cineasta {
         this.sobrenome = sobrenome;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

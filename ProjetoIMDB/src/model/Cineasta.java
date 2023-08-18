@@ -1,12 +1,11 @@
 package model;
 
-import java.util.Date;
-
 public abstract class Cineasta {
     private String nome;
     private String sobrenome;
-    private Date dataNascimento;
+    private String dataNascimento;
     private double altura;
+    private boolean isOscar;
 
     public String getNome() {
         return nome;
@@ -24,11 +23,11 @@ public abstract class Cineasta {
         this.sobrenome = sobrenome;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -39,4 +38,14 @@ public abstract class Cineasta {
     public void setAltura(double altura) {
         this.altura = altura;
     }
+
+    public boolean isOscar() {
+        return isOscar;
+    }
+
+    public void setOscar(boolean oscar) {
+        isOscar = oscar;
+    }
+
+
 }

@@ -50,7 +50,7 @@ public class FilmesUI extends EditItemUI<Filmes> {
                 item.setOrcamento(orcamento);
                 break;
             case 5:
-                boolean oscar = Boolean.parseBoolean(ConsoleUIHelper.askSimpleInput("Informe o orçamento"));
+                boolean oscar = Boolean.parseBoolean(ConsoleUIHelper.askSimpleInput("O filmes tem Oscar? true/false"));
                 item.setIsOscar(oscar);
                 break;
         }

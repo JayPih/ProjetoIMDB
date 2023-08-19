@@ -27,7 +27,7 @@ public class CatalogoUI extends PagedListUI<Filmes> {
                 return false;
             }
         });
-
+        ui.show();
     }
 
     @Override

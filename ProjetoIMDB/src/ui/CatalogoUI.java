@@ -1,6 +1,9 @@
 package ui;
 
+import enums.CategoriaFilmes;
+import enums.ClassificacaoIndicativa;
 import model.Filmes;
+import services.CatalogoService;
 
 public class CatalogoUI extends PagedListUI<Filmes> {
 
@@ -32,6 +35,10 @@ public class CatalogoUI extends PagedListUI<Filmes> {
 
     @Override
     protected void addItem() {
-
+        Filmes newFilme = new Filmes();
+        newFilme.setCategoriaFilmes(CategoriaFilmes.ACAO);
+        newFilme.setClassificacaoIndicativa(ClassificacaoIndicativa.L);
+        CatalogoService.getInstance().add(newFilme);
+        showItem(newFilme);
     }
 };

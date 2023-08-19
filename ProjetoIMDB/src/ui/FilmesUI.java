@@ -4,6 +4,8 @@ import enums.CategoriaFilmes;
 import model.Filmes;
 import util.ConsoleUIHelper;
 
+import java.math.BigDecimal;
+
 public class FilmesUI extends EditItemUI<Filmes> {
     public FilmesUI(String titulo, Filmes item, EditItemCallback<Filmes> editItemCallback) {
         super(titulo, item, editItemCallback);
@@ -35,12 +37,22 @@ public class FilmesUI extends EditItemUI<Filmes> {
                 item.setNome(nome);
                 break;
             case 2:
+                String descricao = ConsoleUIHelper.askSimpleInput("Informe a descrição");
+                item.setDescricao(descricao);
+
+                break;
+            case 3:
                 String lancamento = ConsoleUIHelper.askSimpleInput("Informe a data de lançamento");
                 item.setDataLancamento(lancamento);
                 break;
-            case 3:
-                String descricao = ConsoleUIHelper.askSimpleInput("Informe a descrição");
-                item.setDescricao(descricao);
+            case 4:
+                BigDecimal orcamento = BigDecimal.valueOf(Double.parseDouble(ConsoleUIHelper.askSimpleInput("Informe o orçamento")));
+                item.setOrcamento(orcamento);
+                break;
+            case 5:
+                boolean oscar = Boolean.parseBoolean(ConsoleUIHelper.askSimpleInput("Informe o orçamento"));
+                item.setIsOscar(oscar);
+                break;
         }
     }
 
